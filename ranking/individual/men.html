@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Players</title>
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple_touch_icon.png">
+    <link rel="stylesheet" href="/assets/tailwind_reset.css">
+    <link rel="stylesheet" href="/assets/common.css">
+    <script defer src="/assets/common.js"></script>
+    <script defer src="/assets/resource_index.js"></script>
+  </head>
+  <body>
+    <div class="notification-bar">
+      <div class="notification-bar--inner">This website is in alpha phase.</div>
+    </div>
+    <header class="header">
+      <div class="header--inner">
+        <a class="header--logo-link" href="/"><img class="header--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <button class="header--navigation-button" id="navigation-button" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"></button>
+        <nav class="header--navigation" id="main-navigation" aria-hidden="true" aria-label="Main">
+          <ul class="header--navigation-list">
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/" >Home</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/event" >Events</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/ranking/club" aria-current="true">Rankings</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/club" >Clubs</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/player" >Players</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="main-title">Individual Ranking - Men</h1>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ul class="breadcrumb--list">
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-text">Rankings</span></li>
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-text">Individual</span></li>
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-text" aria-current="true">Men</span></li>
+  </ul>
+</nav>
+<div class="tab-navigation">
+  <a class="tab-navigation--link" href="/ranking/club">Club Ranking</a>
+  <a class="tab-navigation--link" aria-current="true" href="/ranking/individual/men">Individual Ranking - Men</a>
+  <a class="tab-navigation--link"  href="/ranking/individual/women">Individual Ranking - Women</a>
+</div>
+<form class="search-form" id="search-form" aria-label="Search, filter and sort">
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="search">Search by ID or full name</label>
+    <input class="search-form--field-input" id="search" type="search" name="search" value="">
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-state">Filter state</label>
+    <select class="search-form--field-select" id="filter-state" name="filter-state">
+      <option value="" selected>None</option>
+      
+        <option value="Johor" >Johor</option>
+      
+        <option value="Kedah" >Kedah</option>
+      
+        <option value="Kelantan" >Kelantan</option>
+      
+        <option value="Kuala Lumpur" >Kuala Lumpur</option>
+      
+        <option value="Labuan" >Labuan</option>
+      
+        <option value="Melaka" >Melaka</option>
+      
+        <option value="Negeri Sembilan" >Negeri Sembilan</option>
+      
+        <option value="Pahang" >Pahang</option>
+      
+        <option value="Perak" >Perak</option>
+      
+        <option value="Perlis" >Perlis</option>
+      
+        <option value="Pulau Pinang" >Pulau Pinang</option>
+      
+        <option value="Putrajaya" >Putrajaya</option>
+      
+        <option value="Sabah" >Sabah</option>
+      
+        <option value="Sarawak" >Sarawak</option>
+      
+        <option value="Selangor" >Selangor</option>
+      
+        <option value="Terengganu" >Terengganu</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-status">Filter status</label>
+    <select class="search-form--field-select" id="filter-status" name="filter-status">
+      <option value="" selected>None</option>
+      
+        <option value="Active" >Active</option>
+      
+        <option value="Inactive" >Inactive</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-by">Sort by</label>
+    <select class="search-form--field-select" id="sort-by" name="sort-by">
+      
+        <option value="Place" selected>Place</option>
+      
+        <option value="FullName" >Full name</option>
+      
+        <option value="Id" >ID</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-direction">Sort direction</label>
+    <select class="search-form--field-select" id="sort-direction" name="sort-direction">
+      
+        <option value="Ascending" selected>Ascending</option>
+      
+        <option value="Descending" >Descending</option>
+      
+    </select>
+  </div>
+  <div class="search-form--button-list">
+    <button class="search-form--button" type="submit">Submit</button>
+  </div>
+</form>
+<p class="notice">The point system is still in the developing process. Currently the place should be ignored.</p>
+<div class="table--wrapper">
+  <table class="table">
+    <caption>Individual Ranking - Men</caption>
+    <thead>
+      <tr>
+        <th scope="col">Place</th>
+        <th scope="col">Full name</th>
+        <th scope="col">State</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Club</th>
+        <th scope="col">Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>1</td>
+          <td><a class="table--link" href="/player/473/about">CALEB CHIN QI LE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>1</td>
+          <td><a class="table--link" href="/player/603/about">DARREN LIM</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/25/about">Alliance Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/420/about">LEE HANG JIE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/421/about">ONG ZONGWEI</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/422/about">FONG KUO YOONG</a></td>
+          <td>Sabah</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/423/about">ETHAN YAP ZHEN HAO</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/424/about">NGOO WIN AU</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/425/about">DERRICK LIAW JUN KAI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/426/about">DERRICK THANG LYE SHE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/427/about">BELDEN TEOH JING YANG</a></td>
+          <td>Perak</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/428/about">NEIL GERARD KANG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/429/about">LAI ZENJ</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/430/about">IVAN HOR CHIN YANG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/431/about">TEE WEI HONG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/432/about">BENJAMIN NG YUNG-HUI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/433/about">SHABESH A/L SHANKAR</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/434/about">CHAN KEAT WAI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/435/about">AU YONG JUN SHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/436/about">AARON QUEK KHOON SHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/437/about">CHEE ZHE YANG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/438/about">BRANDON GAN YAN YUE</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/439/about">LEE MIN JIE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/440/about">NG BOON BIN</a></td>
+          <td>Johor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/441/about">YONG ZHEN DONG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/442/about">CHU ZHUN SHENN</a></td>
+          <td>Sabah</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/443/about">CODY LEE HAO-SHAN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/444/about">TANG ZHE KHEE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/445/about">HENG WEI JIAN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/446/about">PENG WEI KEAT</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/447/about">BENJAMIN CHOONG MIN WYE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/448/about">LEE ZHEN JEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/449/about">FONG CHONG HAN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/450/about">LIAN JUN BIN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/451/about">BRYAN CHAN YAO ZU</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/452/about">LIM NICK XERN</a></td>
+          <td>Pahang</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/453/about">TEW CHUAN LE</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/454/about">TAN VERN KEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/455/about">HO JUNN YEW</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/456/about">MAK SIAN SHERN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/457/about">AARON LEE ONN DE SILVA</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Inactive</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/458/about">LO ZEJUIN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/459/about">YAP ZHENG LIANG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/460/about">MITCHELL CHEAH MIN JIE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/461/about">BRIAN KHOO JOO LEONG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/462/about">LIM KIAN YUNG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/463/about">NICHOLAS TAN WEI JIN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/464/about">BRANDON LEE JIA SHEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/465/about">TAN JEE SHEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/466/about">BRANDON TEOH JIA ZHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+        <tr>
+          <td>3</td>
+          <td><a class="table--link" href="/player/467/about">NG KHENG LUEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+<div class="page-controls">
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="" disabled>Go to first page</button>
+  <button class="page-controls--button" id="previous-page-button" type="button" disabled>Go to previous page</button>
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="467" >Go to next page</button>
+</div>
+    </main>
+    <footer class="footer">
+      <section class="footer--section-1">
+        <a class="footer--logo-link" href="/"><img class="footer--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <ul class="footer--social-list">
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.youtube.com/@dodgeballmsia"><img class="footer--social-list-item-logo" src="/assets/youtube.svg" alt="YouTube" width="35" height="35"></a></li>
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.facebook.com/dodgeballmalaysiaMAD/"><img class="footer--social-list-item-logo" src="/assets/facebook.svg" alt="Facebook" width="35" height="35"></a></li>
+          
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.instagram.com/ndcmsia/"><img class="footer--social-list-item-logo" src="/assets/instagram.svg" alt="Instagram" width="35" height="35"></a></li>
+          
+        </ul>
+      </section>
+      <section class="footer--section-2">
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/event">Events</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title">Rankings</h6>
+          <ul class="footer--section-2-bar-list">
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/club">Club</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/men">Individual - Men</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/women">Individual - Women</a></li>
+            
+          </ul>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/club">Clubs</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/player">Players</a></h6>
+        </div>
+        
+      </section>
+      <section class="footer--section-3">
+        &copy; Copyright 2023, Evemeisters
+      </section>
+    </footer>
+  </body>
+</html>

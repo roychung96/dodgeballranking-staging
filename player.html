@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Players</title>
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple_touch_icon.png">
+    <link rel="stylesheet" href="/assets/tailwind_reset.css">
+    <link rel="stylesheet" href="/assets/common.css">
+    <script defer src="/assets/common.js"></script>
+    <script defer src="/assets/resource_index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="notification-bar">
+      <div class="notification-bar--inner">This website is in alpha phase.</div>
+    </div>
+    <header class="header">
+      <div class="header--inner">
+        <a class="header--logo-link" href="/"><img class="header--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <button class="header--navigation-button" id="navigation-button" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"></button>
+        <nav class="header--navigation" id="main-navigation" aria-hidden="true" aria-label="Main">
+          <ul class="header--navigation-list">
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/" >Home</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/event" >Events</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/ranking/club" >Rankings</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/club" >Clubs</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/player" aria-current="true">Players</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="main-title">Players</h1>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ul class="breadcrumb--list">
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-text" aria-current="true">Players</span></li>
+  </ul>
+</nav>
+<form class="search-form" id="search-form" aria-label="Search, filter and sort">
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="search">Search by ID or full name</label>
+    <input class="search-form--field-input" id="search" type="search" name="search" value="">
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-state">Filter state</label>
+    <select class="search-form--field-select" id="filter-state" name="filter-state">
+      <option value="" selected>None</option>
+      
+        <option value="Johor" >Johor</option>
+      
+        <option value="Kedah" >Kedah</option>
+      
+        <option value="Kelantan" >Kelantan</option>
+      
+        <option value="Kuala Lumpur" >Kuala Lumpur</option>
+      
+        <option value="Labuan" >Labuan</option>
+      
+        <option value="Melaka" >Melaka</option>
+      
+        <option value="Negeri Sembilan" >Negeri Sembilan</option>
+      
+        <option value="Pahang" >Pahang</option>
+      
+        <option value="Perak" >Perak</option>
+      
+        <option value="Perlis" >Perlis</option>
+      
+        <option value="Pulau Pinang" >Pulau Pinang</option>
+      
+        <option value="Putrajaya" >Putrajaya</option>
+      
+        <option value="Sabah" >Sabah</option>
+      
+        <option value="Sarawak" >Sarawak</option>
+      
+        <option value="Selangor" >Selangor</option>
+      
+        <option value="Terengganu" >Terengganu</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-gender">Filter gender</label>
+    <select class="search-form--field-select" id="filter-gender" name="filter-gender">
+      <option value="" selected>None</option>
+      
+        <option value="Female" >Female</option>
+      
+        <option value="Male" >Male</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-status">Filter status</label>
+    <select class="search-form--field-select" id="filter-status" name="filter-status">
+      <option value="" selected>None</option>
+      
+        <option value="Active" >Active</option>
+      
+        <option value="Inactive" >Inactive</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-by">Sort by</label>
+    <select class="search-form--field-select" id="sort-by" name="sort-by">
+      
+        <option value="FullName" selected>Full name</option>
+      
+        <option value="Id" >ID</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-direction">Sort direction</label>
+    <select class="search-form--field-select" id="sort-direction" name="sort-direction">
+      
+        <option value="Ascending" selected>Ascending</option>
+      
+        <option value="Descending" >Descending</option>
+      
+    </select>
+  </div>
+  <div class="search-form--button-list">
+    <button class="search-form--button" type="submit">Submit</button>
+  </div>
+</form>
+<div class="table--wrapper">
+  <table class="table">
+    <caption>Players</caption>
+    <thead>
+      <tr>
+        <th scope="col">Profile picture</th>
+        <th scope="col">Full name</th>
+        <th scope="col">State</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Club</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/616/about">AARON CHARIS LIANTO</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/26/about">Devil&#039;s Duke</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/fsgD9B1KuwkQHQ6jYlUDQk.jpg" alt="Profile picture of AARON CHRISTOPHER PEK">
+            
+          </td>
+          <td><a class="table--link" href="/player/549/about">AARON CHRISTOPHER PEK</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/22/about">G.O.A.T.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/W12HoeRZFSXZpt3wSZvg0C.jpg" alt="Profile picture of AARON HII">
+            
+          </td>
+          <td><a class="table--link" href="/player/727/about">AARON HII</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/29/about">VALKYRIES</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/457/about">AARON LEE ONN DE SILVA</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Inactive</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/436/about">AARON QUEK KHOON SHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/H6r3ytXnK6kHT8bq6A4RUS.jpg" alt="Profile picture of ADAM LOOI WEI SHIUNG">
+            
+          </td>
+          <td><a class="table--link" href="/player/560/about">ADAM LOOI WEI SHIUNG</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/23/about">RAMS</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/535/about">ADRIAN HOH</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/21/about">Earthshakers</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/711/about">ADRIAN WONG JIAN TATT</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/33/about">Ares</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/8MyZH0sPb3EHrzg4XifdO2.png" alt="Profile picture of ADRIENNE LAU QIAN WEN">
+            
+          </td>
+          <td><a class="table--link" href="/player/512/about">ADRIENNE LAU QIAN WEN</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/20/about">Boltz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/659/about">ALAGENDRAN SUPARAMANI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/27/about">SKATEPARK DODGEBALL CLUB</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/LYY1pZN9FD1FI41zLVcJxO.jpg" alt="Profile picture of ALICIA LEE YEN FERN">
+            
+          </td>
+          <td><a class="table--link" href="/player/577/about">ALICIA LEE YEN FERN</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/24/about">Yang GOAT</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/762/about">ALWYN YOU CHEN EN</a></td>
+          <td>Sabah</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/32/about">Knights DC</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/669/about">ALYSSA YONG SHU QING</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/33/about">Ares</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/717/about">AMIR AFANDI BIN BAHARUDIN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/28/about">Saints D.C.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/hvxp6WJg1hwbg4Xo6GZBcM.jpg" alt="Profile picture of ANDRE DARIEUS LIM YANN HUNN">
+            
+          </td>
+          <td><a class="table--link" href="/player/504/about">ANDRE DARIEUS LIM YANN HUNN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/710/about">ANDREW JOSHUA PHANG JING RONG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/33/about">Ares</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/796/about">ANG CHIN MENG</a></td>
+          <td>Pulau Pinang</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/30/about">VIKINGS</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/EndJkyEBAedWqZkLM47Xmv.jpg" alt="Profile picture of ANSON CHIN QI ZHE">
+            
+          </td>
+          <td><a class="table--link" href="/player/472/about">ANSON CHIN QI ZHE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/718/about">ANTAR BHUIYAN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/28/about">Saints D.C.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/HuRVaRLNfBYCwArgGIgIUl.jpg" alt="Profile picture of ASHLEY YEE">
+            
+          </td>
+          <td><a class="table--link" href="/player/540/about">ASHLEY YEE</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/22/about">G.O.A.T.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/411/about">ASHLEY YEOH HUI-MIN</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/789/about">ASHWIN JAY</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/29/about">VALKYRIES</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/681/about">AU WAI YEE</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/29/about">VALKYRIES</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/435/about">AU YONG JUN SHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/719/about">AU ZHEN JACK</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/28/about">Saints D.C.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/707/about">AU ZHEN NICK</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/33/about">Ares</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/647/about">BEH KAI JIE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/27/about">SKATEPARK DODGEBALL CLUB</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/427/about">BELDEN TEOH JING YANG</a></td>
+          <td>Perak</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/410/about">BELINDA TAN YU XUAN</a></td>
+          <td>Johor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/447/about">BENJAMIN CHOONG MIN WYE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/638/about">BENJAMIN LIEW ZHEN NAN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/18/about">Reapers D.C</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/432/about">BENJAMIN NG YUNG-HUI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/780/about">BONG ZI TENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/28/about">Saints D.C.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/438/about">BRANDON GAN YAN YUE</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/464/about">BRANDON LEE JIA SHEN</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/d0ZgkOzhk4L0AMhlVqU2bt.jpg" alt="Profile picture of BRANDON TEOH JIA ZHENG">
+            
+          </td>
+          <td><a class="table--link" href="/player/466/about">BRANDON TEOH JIA ZHENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/461/about">BRIAN KHOO JOO LEONG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/17/about">Elites Dodgeball</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/29Icn2bCAZvRt3Kce9JLOW.jpg" alt="Profile picture of BRIAN NG WEN YAO">
+            
+          </td>
+          <td><a class="table--link" href="/player/586/about">BRIAN NG WEN YAO</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/24/about">Yang GOAT</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/451/about">BRYAN CHAN YAO ZU</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/jfVyb7mXLI4hskv2opfPHN.jpg" alt="Profile picture of CALEB CHIN QI LE">
+            
+          </td>
+          <td><a class="table--link" href="/player/473/about">CALEB CHIN QI LE</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/19/about">Blitz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/533/about">CALVIN CHAN SHUEN TENG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/21/about">Earthshakers</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/FsKKiPgzxGDqNkWl9FgNsK.jpg" alt="Profile picture of CARLOS BENJAMIN GOONTING">
+            
+          </td>
+          <td><a class="table--link" href="/player/555/about">CARLOS BENJAMIN GOONTING</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/22/about">G.O.A.T.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/672/about">CELINE NA HUI JUN</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/33/about">Ares</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/537/about">CHAI VIN CENT</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/21/about">Earthshakers</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/630/about">CHAI WAI CHUNG</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/18/about">Reapers D.C</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/434/about">CHAN KEAT WAI</a></td>
+          <td>Selangor</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/516/about">CHAN MENG EN</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/20/about">Boltz</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <img class="table--thumbnail-image" src="/upload/bW6wc07VkL93S6Y3ATt5Wh.jpg" alt="Profile picture of CHAN PUI MAN KURAMA">
+            
+          </td>
+          <td><a class="table--link" href="/player/541/about">CHAN PUI MAN KURAMA</a></td>
+          <td>Selangor</td>
+          <td>Female</td>
+          <td>
+            
+              <a class="table--link" href="/club/22/about">G.O.A.T.</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/531/about">CHAN RU HWANG</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/21/about">Earthshakers</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+        <tr>
+          <td>
+            
+              <svg class="table--thumbnail-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="currentColor" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            
+          </td>
+          <td><a class="table--link" href="/player/530/about">CHAN WEI XIAN</a></td>
+          <td>Kuala Lumpur</td>
+          <td>Male</td>
+          <td>
+            
+              <a class="table--link" href="/club/21/about">Earthshakers</a></dd>
+            
+          </td>
+          <td>Active</td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+<div class="page-controls">
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="" disabled>Go to first page</button>
+  <button class="page-controls--button" id="previous-page-button" type="button" disabled>Go to previous page</button>
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="530" >Go to next page</button>
+</div>
+    </main>
+    <footer class="footer">
+      <section class="footer--section-1">
+        <a class="footer--logo-link" href="/"><img class="footer--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <ul class="footer--social-list">
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.youtube.com/@dodgeballmsia"><img class="footer--social-list-item-logo" src="/assets/youtube.svg" alt="YouTube" width="35" height="35"></a></li>
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.facebook.com/dodgeballmalaysiaMAD/"><img class="footer--social-list-item-logo" src="/assets/facebook.svg" alt="Facebook" width="35" height="35"></a></li>
+          
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.instagram.com/ndcmsia/"><img class="footer--social-list-item-logo" src="/assets/instagram.svg" alt="Instagram" width="35" height="35"></a></li>
+          
+        </ul>
+      </section>
+      <section class="footer--section-2">
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/event">Events</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title">Rankings</h6>
+          <ul class="footer--section-2-bar-list">
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/club">Club</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/men">Individual - Men</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/women">Individual - Women</a></li>
+            
+          </ul>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/club">Clubs</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/player">Players</a></h6>
+        </div>
+        
+      </section>
+      <section class="footer--section-3">
+        &copy; Copyright 2023, Evemeisters
+      </section>
+    </footer>
+  </body>
+</html>

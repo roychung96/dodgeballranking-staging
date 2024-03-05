@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Club Details</title>
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple_touch_icon.png">
+    <link rel="stylesheet" href="/assets/tailwind_reset.css">
+    <link rel="stylesheet" href="/assets/common.css">
+    <script defer src="/assets/common.js"></script>
+    <link rel="stylesheet" href="/assets/resource_index.css">
+<script defer src="/assets/resource_index.js"></script>
+  </head>
+  <body>
+    <div class="notification-bar">
+      <div class="notification-bar--inner">This website is in alpha phase.</div>
+    </div>
+    <header class="header">
+      <div class="header--inner">
+        <a class="header--logo-link" href="/"><img class="header--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <button class="header--navigation-button" id="navigation-button" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"></button>
+        <nav class="header--navigation" id="main-navigation" aria-hidden="true" aria-label="Main">
+          <ul class="header--navigation-list">
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/" >Home</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/event" >Events</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/ranking/club" >Rankings</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/club" aria-current="true">Clubs</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/player" >Players</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="main-title">Taylor&#039;s University Lakeside Storm Dodgeball Club</h1>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ul class="breadcrumb--list">
+    <li class="breadcrumb--list-item"><a class="breadcrumb--list-item-link" href="/club">Clubs</a></li>
+    <li class="breadcrumb--list-item"><a class="breadcrumb--list-item-link" href="/club/16/about">Taylor&#039;s University Lakeside Storm Dodgeball Club</a></li>
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-text" aria-current="true">Participations</span></li>
+  </ul>
+</nav>
+<div class="tab-navigation">
+  <a class="tab-navigation--link" href="/club/16/about">About</a>
+  <a class="tab-navigation--link" href="/club/16/member">Members</a>
+  <a class="tab-navigation--link" aria-current="true" href="/club/16/participation">Participations</a>
+</div>
+<form class="search-form" id="search-form" aria-label="Search, filter and sort">
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-event-id">Filter Event ID</label>
+    <input class="search-form--field-input" id="filter-event-id" type="number" name="filter-event-id" value="">
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="filter-year">Filter year</label>
+    <select class="search-form--field-select" id="filter-year" name="filter-year">
+      <option value="" selected>None</option>
+      
+        <option value="2020" >2020</option>
+      
+        <option value="2021" >2021</option>
+      
+        <option value="2022" >2022</option>
+      
+        <option value="2023" >2023</option>
+      
+        <option value="2024" >2024</option>
+      
+        <option value="2025" >2025</option>
+      
+        <option value="2026" >2026</option>
+      
+        <option value="2027" >2027</option>
+      
+        <option value="2028" >2028</option>
+      
+        <option value="2029" >2029</option>
+      
+        <option value="2030" >2030</option>
+      
+        <option value="2031" >2031</option>
+      
+        <option value="2032" >2032</option>
+      
+        <option value="2033" >2033</option>
+      
+        <option value="2034" >2034</option>
+      
+        <option value="2035" >2035</option>
+      
+        <option value="2036" >2036</option>
+      
+        <option value="2037" >2037</option>
+      
+        <option value="2038" >2038</option>
+      
+        <option value="2039" >2039</option>
+      
+        <option value="2040" >2040</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-by">Sort by</label>
+    <select class="search-form--field-select" id="sort-by" name="sort-by">
+      
+        <option value="Date" selected>Date</option>
+      
+        <option value="Id" >ID</option>
+      
+    </select>
+  </div>
+  <div class="search-form--field">
+    <label class="search-form--field-label" for="sort-direction">Sort direction</label>
+    <select class="search-form--field-select" id="sort-direction" name="sort-direction">
+      
+        <option value="Descending" selected>Descending</option>
+      
+        <option value="Ascending" >Ascending</option>
+      
+    </select>
+  </div>
+  <div class="search-form--button-list">
+    <button class="search-form--button" type="submit">Submit</button>
+  </div>
+</form>
+<div class="table--wrapper">
+  <table class="table">
+    <caption>Taylor&#039;s University Lakeside Storm Dodgeball Club Participations</caption>
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Event</th>
+        <th scope="col">Tier</th>
+        <th scope="col">Category</th>
+        <th scope="col">Team</th>
+        <th scope="col">Position</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>2023-07-15</td>
+          <td><a class="table--link" href="/event/5/news">NDC 2023 Female</a></td>
+          <td>5</td>
+          <td>Female</td>
+          <td><a class="table--link" href="/event/5/category/11/team/205/about">Storm 2</a></td>
+          <td>
+            
+              11
+            
+          </td>
+          
+        </tr>
+      
+        <tr>
+          <td>2023-07-15</td>
+          <td><a class="table--link" href="/event/5/news">NDC 2023 Female</a></td>
+          <td>5</td>
+          <td>Female</td>
+          <td><a class="table--link" href="/event/5/category/11/team/204/about">Storm 1</a></td>
+          <td>
+            
+              10
+            
+          </td>
+          
+        </tr>
+      
+        <tr>
+          <td>2023-07-15</td>
+          <td><a class="table--link" href="/event/7/news">NDC 2023 Rookie</a></td>
+          <td>5</td>
+          <td>Male</td>
+          <td><a class="table--link" href="/event/7/category/13/team/230/about">Storm 3</a></td>
+          <td>
+            
+              10
+            
+          </td>
+          
+        </tr>
+      
+        <tr>
+          <td>2023-07-15</td>
+          <td><a class="table--link" href="/event/7/news">NDC 2023 Rookie</a></td>
+          <td>5</td>
+          <td>Male</td>
+          <td><a class="table--link" href="/event/7/category/13/team/229/about">Storm 2</a></td>
+          <td>
+            
+              6
+            
+          </td>
+          
+        </tr>
+      
+        <tr>
+          <td>2023-07-15</td>
+          <td><a class="table--link" href="/event/7/news">NDC 2023 Rookie</a></td>
+          <td>5</td>
+          <td>Male</td>
+          <td><a class="table--link" href="/event/7/category/13/team/228/about">Storm 1</a></td>
+          <td>
+            
+              3
+            
+          </td>
+          
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+<div class="page-controls">
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="" disabled>Go to first page</button>
+  <button class="page-controls--button" id="previous-page-button" type="button" disabled>Go to previous page</button>
+  <button class="page-controls--button" type="submit" form="search-form" name="after" value="228" disabled>Go to next page</button>
+</div>
+    </main>
+    <footer class="footer">
+      <section class="footer--section-1">
+        <a class="footer--logo-link" href="/"><img class="footer--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <ul class="footer--social-list">
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.youtube.com/@dodgeballmsia"><img class="footer--social-list-item-logo" src="/assets/youtube.svg" alt="YouTube" width="35" height="35"></a></li>
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.facebook.com/dodgeballmalaysiaMAD/"><img class="footer--social-list-item-logo" src="/assets/facebook.svg" alt="Facebook" width="35" height="35"></a></li>
+          
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.instagram.com/ndcmsia/"><img class="footer--social-list-item-logo" src="/assets/instagram.svg" alt="Instagram" width="35" height="35"></a></li>
+          
+        </ul>
+      </section>
+      <section class="footer--section-2">
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/event">Events</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title">Rankings</h6>
+          <ul class="footer--section-2-bar-list">
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/club">Club</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/men">Individual - Men</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/women">Individual - Women</a></li>
+            
+          </ul>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/club">Clubs</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/player">Players</a></h6>
+        </div>
+        
+      </section>
+      <section class="footer--section-3">
+        &copy; Copyright 2023, Evemeisters
+      </section>
+    </footer>
+  </body>
+</html>

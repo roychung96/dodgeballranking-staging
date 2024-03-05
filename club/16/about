@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Club About</title>
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple_touch_icon.png">
+    <link rel="stylesheet" href="/assets/tailwind_reset.css">
+    <link rel="stylesheet" href="/assets/common.css">
+    <script defer src="/assets/common.js"></script>
+    
+  </head>
+  <body>
+    <div class="notification-bar">
+      <div class="notification-bar--inner">This website is in alpha phase.</div>
+    </div>
+    <header class="header">
+      <div class="header--inner">
+        <a class="header--logo-link" href="/"><img class="header--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <button class="header--navigation-button" id="navigation-button" type="button" aria-label="Toggle navigation" aria-controls="main-navigation" aria-expanded="false"></button>
+        <nav class="header--navigation" id="main-navigation" aria-hidden="true" aria-label="Main">
+          <ul class="header--navigation-list">
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/" >Home</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/event" >Events</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/ranking/club" >Rankings</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/club" aria-current="true">Clubs</a></li>
+            <li class="header--navigation-list-item"><a class="header--navigation-list-item-link" href="/player" >Players</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="main-title">Taylor&#039;s University Lakeside Storm Dodgeball Club</h1>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ul class="breadcrumb--list">
+    <li class="breadcrumb--list-item"><a class="breadcrumb--list-item-link" href="/club">Clubs</a></li>
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-link">Taylor&#039;s University Lakeside Storm Dodgeball Club</span></li>
+    <li class="breadcrumb--list-item"><span class="breadcrumb--list-item-link" aria-current="true">About</span></li>
+  </ul>
+</nav>
+<div class="tab-navigation">
+  <a class="tab-navigation--link" aria-current="true" href="/club/16/about">About</a>
+  <a class="tab-navigation--link" href="/club/16/member">Members</a>
+  <a class="tab-navigation--link" href="/club/16/participation">Participations</a>
+</div>
+<dl class="definition--list">
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Name</dt>
+    <dd class="definition--list-item-value">Taylor&#039;s University Lakeside Storm Dodgeball Club</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Logo</dt>
+    <dd class="definition--list-item-value">
+      
+        <img class="definition--list-item-value-image definition--image-club-logo" src="/upload/8Aicc2EQBmcCzipqi4Qxnt.webp" alt="Logo of Taylor&#039;s University Lakeside Storm Dodgeball Club">
+      
+    </dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">State</dt>
+    <dd class="definition--list-item-value">Selangor</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Manager</dt>
+    <dd class="definition--list-item-value">AU YONG JUN SHENG</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Head coach</dt>
+    <dd class="definition--list-item-value">KOK WAI LYNN</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Year founded</dt>
+    <dd class="definition--list-item-value">2010</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Historical achievements</dt>
+    <dd class="definition--list-item-value definition--list-item-value-long">Malaysian Association of Private Colleges and Universities (MAPCU) 2019 (Coed Category (Bronze)), NDC Grand Finals 2018 (Male Category (Gold), Female Category (Gold), and Open Category (Gold)), Social League Season 2 (Co-ed Category (Gold)) and Social League Season 1 (Male Category (Gold) and Female Category (Silver))</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">History of club formation</dt>
+    <dd class="definition--list-item-value definition--list-item-value-long">Taylor’s University Lakeside Storm Dodgeball Club has been around since 2010 and has been developing committed and potential players who have been participating in competitions and leagues throughout Malaysia and internationally. The main goal of our club is to instil interest and produce club members that shows potential to join leagues and competitions of higher rankings.</dd>
+  </div>
+  <div class="definition--list-item">
+    <dt class="definition--list-item-key">Status</dt>
+    <dd class="definition--list-item-value">Active</dd>
+  </div>
+</dl>
+    </main>
+    <footer class="footer">
+      <section class="footer--section-1">
+        <a class="footer--logo-link" href="/"><img class="footer--logo-image" src="/assets/logo.png" alt="Dodgeball Ranking Platform logo" width="180" height="180"></a>
+        <ul class="footer--social-list">
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.youtube.com/@dodgeballmsia"><img class="footer--social-list-item-logo" src="/assets/youtube.svg" alt="YouTube" width="35" height="35"></a></li>
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.facebook.com/dodgeballmalaysiaMAD/"><img class="footer--social-list-item-logo" src="/assets/facebook.svg" alt="Facebook" width="35" height="35"></a></li>
+          
+          <li class="footer--social-list-item"><a class="footer--social-list-item-link" href="https://www.instagram.com/ndcmsia/"><img class="footer--social-list-item-logo" src="/assets/instagram.svg" alt="Instagram" width="35" height="35"></a></li>
+          
+        </ul>
+      </section>
+      <section class="footer--section-2">
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/event">Events</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title">Rankings</h6>
+          <ul class="footer--section-2-bar-list">
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/club">Club</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/men">Individual - Men</a></li>
+            <li class="footer--section-2-bar-list-item"><a class="footer--section-2-bar-list-item-link" href="/ranking/individual/women">Individual - Women</a></li>
+            
+          </ul>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/club">Clubs</a></h6>
+        </div>
+        <div class="footer--section-2-bar">
+          <h6 class="footer--section-2-bar-title"><a class="footer--section-2-bar-title-link" href="/player">Players</a></h6>
+        </div>
+        
+      </section>
+      <section class="footer--section-3">
+        &copy; Copyright 2023, Evemeisters
+      </section>
+    </footer>
+  </body>
+</html>
