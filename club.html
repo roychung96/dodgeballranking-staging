@@ -10,16 +10,10 @@
     <link rel="stylesheet" href="/assets/common.css">
     <script defer src="/assets/common.js"></script>
     <script defer src="/assets/resource_index.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: '#da373d',
-            }
-          }
-        },
         plugins: [
       require('@tailwindcss/forms'),
     ],
@@ -55,84 +49,213 @@
   </ul>
 </nav>
 
-<form class="search-form" id="search-form" aria-label="Search, filter and sort">
-  <div class="search-form--field">
-    <label class="search-form--field-label" for="search">Search by ID or name</label>
-    <input class="search-form--field-input" id="search" type="search" name="search" value="">
+
+<form class="mx-auto max-w-3xl px-4 text-center lg:max-w-7xl mt-2 " id="search-form" aria-label="Search, filter and sort">
+  <div class="flex items-center justify-between ">
+    <div class="relative inline-block text-left w-64">
+      <div class="search-form--field">
+        <label for="name" class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900">Name</label>
+        <input id="search" type="search" name="search" value=""class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+         placeholder="  Search by ID or name" aria-describedby="email-description">
+      </div>
   </div>
-  <div class="search-form--field">
-    <label class="search-form--field-label" for="filter-state">Filter state</label>
-    <select class="search-form--field-select" id="filter-state" name="filter-state">
-      <option value="" selected>None</option>
-      
-        <option value="Johor" >Johor</option>
-      
-        <option value="Kedah" >Kedah</option>
-      
-        <option value="Kelantan" >Kelantan</option>
-      
-        <option value="Kuala Lumpur" >Kuala Lumpur</option>
-      
-        <option value="Labuan" >Labuan</option>
-      
-        <option value="Melaka" >Melaka</option>
-      
-        <option value="Negeri Sembilan" >Negeri Sembilan</option>
-      
-        <option value="Pahang" >Pahang</option>
-      
-        <option value="Perak" >Perak</option>
-      
-        <option value="Perlis" >Perlis</option>
-      
-        <option value="Pulau Pinang" >Pulau Pinang</option>
-      
-        <option value="Putrajaya" >Putrajaya</option>
-      
-        <option value="Sabah" >Sabah</option>
-      
-        <option value="Sarawak" >Sarawak</option>
-      
-        <option value="Selangor" >Selangor</option>
-      
-        <option value="Terengganu" >Terengganu</option>
-      
-    </select>
+  <div class="relative z-40 hidden"  id="filterMobileDialog" >
+    <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+    <div class="fixed inset-0 z-40 flex">
+     
+      <div class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+        <div class="flex items-center justify-between px-4">
+          <h2 class="text-lg font-medium text-gray-900">Filters</h2>
+          <button id="filterMobileDialogClose" type="button" class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="mt-4 space-y-6  px-4 ">
+            
+    <div class="search-form--field relative  w-full">
+      <label for="name" class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="filter-state">State</label>
+
+      <!-- <label class="search-form--field-label" for="filter-state">Filter state</label> -->
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" id="filter-state" name="filter-state">
+        <option value="" selected>Choose state</option>
+        
+          <option value="Johor" >Johor</option>
+        
+          <option value="Kedah" >Kedah</option>
+        
+          <option value="Kelantan" >Kelantan</option>
+        
+          <option value="Kuala Lumpur" >Kuala Lumpur</option>
+        
+          <option value="Labuan" >Labuan</option>
+        
+          <option value="Melaka" >Melaka</option>
+        
+          <option value="Negeri Sembilan" >Negeri Sembilan</option>
+        
+          <option value="Pahang" >Pahang</option>
+        
+          <option value="Perak" >Perak</option>
+        
+          <option value="Perlis" >Perlis</option>
+        
+          <option value="Pulau Pinang" >Pulau Pinang</option>
+        
+          <option value="Putrajaya" >Putrajaya</option>
+        
+          <option value="Sabah" >Sabah</option>
+        
+          <option value="Sarawak" >Sarawak</option>
+        
+          <option value="Selangor" >Selangor</option>
+        
+          <option value="Terengganu" >Terengganu</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field relative  w-full">
+      <label for="filter-status" class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="filter-state">Status</label>
+
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"  id="filter-status" name="filter-status">
+        <option value="" selected>Choose Status</option>
+        
+          <option value="Active" >Active</option>
+        
+          <option value="Inactive" >Inactive</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field  relative  w-full">
+      <label  class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900"  for="sort-by">Sort by</label>
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"  id="sort-by" name="sort-by">
+        
+          <option value="Name" selected>Name</option>
+        
+          <option value="Id" >ID</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field  relative w-full">
+      <label class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="sort-direction">Sort By</label>
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" id="sort-direction" name="sort-direction">
+        
+          <option value="Ascending" selected>Ascending</option>
+        
+          <option value="Descending" >Descending</option>
+        
+      </select>
+    </div>
+    <div class="search-form--button-list">
+      <button  class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" type="submit">Submit</button>
+    </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="search-form--field">
-    <label class="search-form--field-label" for="filter-status">Filter status</label>
-    <select class="search-form--field-select" id="filter-status" name="filter-status">
-      <option value="" selected>None</option>
-      
-        <option value="Active" >Active</option>
-      
-        <option value="Inactive" >Inactive</option>
-      
-    </select>
-  </div>
-  <div class="search-form--field">
-    <label class="search-form--field-label" for="sort-by">Sort by</label>
-    <select class="search-form--field-select" id="sort-by" name="sort-by">
-      
-        <option value="Name" selected>Name</option>
-      
-        <option value="Id" >ID</option>
-      
-    </select>
-  </div>
-  <div class="search-form--field">
-    <label class="search-form--field-label" for="sort-direction">Sort direction</label>
-    <select class="search-form--field-select" id="sort-direction" name="sort-direction">
-      
-        <option value="Ascending" selected>Ascending</option>
-      
-        <option value="Descending" >Descending</option>
-      
-    </select>
-  </div>
-  <div class="search-form--button-list">
-    <button class="search-form--button" type="submit">Submit</button>
-  </div>
+
+  <div class="relative">
+
+
+  <button type="button" id="filterButtonMobile"    class="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden">Filters</button>
+ </div>
+ <script>
+  // JavaScript for opening and closing the modal
+  document.getElementById('filterButtonMobile').addEventListener('click', function() {
+      document.getElementById('filterMobileDialog').classList.remove('hidden');
+  });
+  
+  document.getElementById('filterMobileDialogClose').addEventListener('click', function() {
+      document.getElementById('filterMobileDialog').classList.add('hidden');
+  });
+  </script>
+  <div class="hidden sm:flex sm:text-right sm:items-baseline sm:space-x-8">
+    
+    <div class="search-form--field relative  w-32">
+      <label for="name" class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="filter-state">State</label>
+
+      <!-- <label class="search-form--field-label" for="filter-state">Filter state</label> -->
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" id="filter-state" name="filter-state">
+        <option value="" selected>Choose state</option>
+        
+          <option value="Johor" >Johor</option>
+        
+          <option value="Kedah" >Kedah</option>
+        
+          <option value="Kelantan" >Kelantan</option>
+        
+          <option value="Kuala Lumpur" >Kuala Lumpur</option>
+        
+          <option value="Labuan" >Labuan</option>
+        
+          <option value="Melaka" >Melaka</option>
+        
+          <option value="Negeri Sembilan" >Negeri Sembilan</option>
+        
+          <option value="Pahang" >Pahang</option>
+        
+          <option value="Perak" >Perak</option>
+        
+          <option value="Perlis" >Perlis</option>
+        
+          <option value="Pulau Pinang" >Pulau Pinang</option>
+        
+          <option value="Putrajaya" >Putrajaya</option>
+        
+          <option value="Sabah" >Sabah</option>
+        
+          <option value="Sarawak" >Sarawak</option>
+        
+          <option value="Selangor" >Selangor</option>
+        
+          <option value="Terengganu" >Terengganu</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field relative  w-32">
+      <label for="filter-status" class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="filter-state">Status</label>
+
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"  id="filter-status" name="filter-status">
+        <option value="" selected>Choose Status</option>
+        
+          <option value="Active" >Active</option>
+        
+          <option value="Inactive" >Inactive</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field  relative  w-32">
+      <label  class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900"  for="sort-by">Sort by</label>
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"  id="sort-by" name="sort-by">
+        
+          <option value="Name" selected>Name</option>
+        
+          <option value="Id" >ID</option>
+        
+      </select>
+    </div>
+    <div class="search-form--field  relative  w-32">
+      <label class="absolute -top-2 left-2 inline-block bg-gray-100 px-1 text-xs font-medium text-gray-900" for="sort-direction">Sort By</label>
+      <select class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6" id="sort-direction" name="sort-direction">
+        
+          <option value="Ascending" selected>Ascending</option>
+        
+          <option value="Descending" >Descending</option>
+        
+      </select>
+    </div>
+    <div class="search-form--button-list">
+      <button  class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" type="submit">Submit</button>
+    </div>
+</div>
+</div>
+
+
+
 </form>
 <div class="table--wrapper">
   <table class="table">
